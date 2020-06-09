@@ -72,7 +72,7 @@
                     scale=0;length[5,9]：使用Integer；
                     scale=0;length<5：使用Short；
              -->
-            <property name="forceBigDecimals" value="false"/>
+            <property name="forceBigDecimals" value="true"/>
         </javaTypeResolver>
 
 

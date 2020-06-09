@@ -1,5 +1,6 @@
 package com.pl1111w.mybatisdemo.entity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class UserInfo {
@@ -17,7 +18,7 @@ public class UserInfo {
 
     private Date birth;
 
-    private Long balance;
+    private BigDecimal balance;
 
     private Date updateTime;
 
@@ -79,11 +80,11 @@ public class UserInfo {
         this.birth = birth;
     }
 
-    public Long getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Long balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 

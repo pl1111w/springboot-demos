@@ -1,12 +1,10 @@
 package com.pl1111w.mybatisdemo.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.pl1111w.mybatisdemo.entity.UserInfo;
 import com.pl1111w.mybatisdemo.service.IUesrInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("UserInfo")
@@ -19,5 +17,10 @@ public class UserInfoController {
     public int saveUserInfo(@RequestBody UserInfo userInfo){
         System.out.println("开始保存用户信息.....");
         return userInfoService.insert(userInfo);
+    }
+    @GetMapping("/queryUserInfoByPhone")
+    UserInfo selectUserInfoByPhone(@RequestParam("phone") Integer phone){
+        UserInfo userInfo = userInfoService.selectUserInfoByPhone(phone);
+        return userInfo;
     }
 }

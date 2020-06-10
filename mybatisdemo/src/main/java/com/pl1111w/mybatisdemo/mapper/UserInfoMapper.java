@@ -2,8 +2,11 @@ package com.pl1111w.mybatisdemo.mapper;
 
 import com.pl1111w.mybatisdemo.entity.UserInfo;
 import com.pl1111w.mybatisdemo.entity.UserInfoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 public interface UserInfoMapper {
     long countByExample(UserInfoExample example);
@@ -27,4 +30,8 @@ public interface UserInfoMapper {
     int updateByPrimaryKeySelective(UserInfo record);
 
     int updateByPrimaryKey(UserInfo record);
+
+    @Select("SELECT * FROM USER_INFO WHERE PHONE = #{phone}")
+    UserInfo selectUserInfoByPhone(@Param("phone") Integer phone);
+
 }

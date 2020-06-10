@@ -22,6 +22,8 @@ public interface IUesrInfoService {
 
     UserInfo selectByPrimaryKey(Integer id);
 
+    UserInfo selectUserInfoByPhone(Integer phone);
+
     int updateByExampleSelective(@Param("record") UserInfo record, @Param("example") UserInfoExample example);
 
     int updateByExample(@Param("record") UserInfo record, @Param("example") UserInfoExample example);

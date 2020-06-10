@@ -51,6 +51,11 @@ public class UserInfoServiceImpl implements IUesrInfoService {
     }
 
     @Override
+    public UserInfo selectUserInfoByPhone(Integer phone) {
+        return userInfoMapper.selectUserInfoByPhone(phone);
+    }
+
+    @Override
     public int updateByExampleSelective(UserInfo record, UserInfoExample example) {
         return 0;
     }

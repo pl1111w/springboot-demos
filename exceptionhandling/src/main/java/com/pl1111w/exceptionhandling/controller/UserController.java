@@ -1,6 +1,7 @@
 package com.pl1111w.exceptionhandling.controller;
 
 import com.pl1111w.exceptionhandling.entity.User;
+import com.pl1111w.exceptionhandling.exception.APIException;
 import com.pl1111w.exceptionhandling.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ public class UserController {
 
     @PostMapping("/addUser")
     public String addUser(@RequestBody @Valid User user) {
+        if(true){
+            throw new APIException(400, "这是400错误");
+        }
         return userService.addUser(user);
     }
 

@@ -6,9 +6,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FilterController {
 
-    @GetMapping(value = "/api/filter")
-    public String apiFilter(String username){
+    @GetMapping(value = "/traditional")
+    public String apiFilter(String username) {
 
-        return "api";
+        return "apiFilter";
+    }
+
+    @GetMapping(value = "/servlets")
+    public String apiServlet() {
+        System.out.println("====");
+        return "apiServlet";
     }
 }

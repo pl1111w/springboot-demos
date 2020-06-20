@@ -1,38 +1,32 @@
 package com.pl1111w.servletfilter.config;
 
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import javax.servlet.*;
+import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.annotation.WebFilter;
+public class FilterConfig implements Filter {
 
-@WebFilter(urlPatterns = "api/*")
-@Configuration
-public class FilterConfig {
 
-    @Bean(name = "FilterExtend")
-    public Filter commonDataFilter() {
-        return new FilterExtend();
+    @Override
+    public void init(javax.servlet.FilterConfig filterConfig) throws ServletException {
+
     }
 
-    /**
-     * 不使用@WebFilter注解
-     * 通过配置FilterRegistrationBean实现拦截
-     *
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        String username = request.getParameter("username");
+        if("jordan".equals(username)){
+            chain.doFilter(request,response);
+        }
+//        String path = ((HttpServletRequest) request).getRequestURI();
+//        if (path.startsWith("/pl1111w/servlet")) {
+//            filterChain.doFilter(request, response); // 排除的url
+//        }
 
-    @Bean
-    public FilterRegistrationBean someFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(commonDataFilter());
-        registration.addUrlPatterns("/traditional/*");
-        registration.setName("commonDataFilter");
-        registration.setOrder(1);
-        return registration;
+
     }
 
-     *
-     *
-     * */
+    @Override
+    public void destroy() {
 
+    }
 }

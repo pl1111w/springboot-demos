@@ -1,6 +1,5 @@
 package com.pl1111w.mybatisdemo.controller;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.pl1111w.mybatisdemo.entity.UserInfo;
 import com.pl1111w.mybatisdemo.service.IUesrInfoService;
 import org.springframework.beans.factory.annotation.Autowired;

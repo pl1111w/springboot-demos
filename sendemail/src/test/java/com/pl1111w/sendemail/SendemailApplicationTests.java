@@ -21,8 +21,8 @@ class SendEmailApplicationTests {
         SimpleMailMessage simpleMessage = new SimpleMailMessage();
         simpleMessage.setSubject("开会");
         simpleMessage.setText("今天开黑");
-        simpleMessage.setTo("2938008579@qq.com");
-        simpleMessage.setFrom("1362596047@qq.com");
+        simpleMessage.setTo("987654321@qq.com");
+        simpleMessage.setFrom("123456789@qq.com");
         javaMailSender.send(simpleMessage);
         System.out.println("发送成功！");
     }
@@ -32,8 +32,8 @@ class SendEmailApplicationTests {
         //复杂邮件消息
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true);
-        messageHelper.setTo("2938008579@qq.com");
-        messageHelper.setFrom("1362596047@qq.com");
+        messageHelper.setTo("987654321@qq.com");
+        messageHelper.setFrom("123456789@qq.com");
         messageHelper.setSubject("发送图片");
         messageHelper.setText("<b style='color:red'>参与抽奖</b>", true);
         messageHelper.addAttachment("git.png", new File("F:\\git.png"));
